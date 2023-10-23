@@ -30,8 +30,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prepare": "husky install",
-    "lint:pre-commit": "eslint --ignore-path ../.eslintignore $(git diff --staged --name-only | grep -E '.ts$|.tsx$' | xargs)",
-    "format:pre-commit": "prettier --check $(git diff --staged --name-only | grep -E '.ts$|.tsx$|.css$' | xargs)"
+    "lint:pre-commit": "eslint --ignore-path ./.eslintignore $(git diff --staged --name-only | grep -E '.ts$|.tsx$' | xargs)",
+    "format:pre-commit": "prettier --check $(git diff --staged --name-only | grep -E '.ts$|.tsx$|.css$' | xargs)",
+    "test:pre-push": "CI=true react-scripts test"
   },
   "eslintConfig": {
     "extends": [
