@@ -2,22 +2,13 @@
   background-color: var(--orange-100);
   color: var(--white);
   font-weight: var(--font-weight-bold);
-  min-width: 296px;
+  width: 100%;
   border: none;
   cursor: pointer;
   line-height: 116%;
-}
-
-.component-button--desktop {
   padding: 20px 24px;
   border-radius: 12px;
   font-size: 1rem;
-}
-
-.component-button--mobile {
-  padding: 16px 24px;
-  border-radius: 8px;
-  font-size: 0.7rem;
 }
 
 .component-button:hover {
@@ -26,4 +17,13 @@
 
 .component-button:active {
   background-color: var(--orange-120);
+}
+
+@media only screen and (max-width: 768px) {
+  .component-button {
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    width: 100%;
+  }
 }

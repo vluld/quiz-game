@@ -9,16 +9,19 @@ function Welcome() {
   return (
     <div className="fullscreen centered diagonal-split welcome__container">
       <div className="welcome__container_item centered">
-        <img src={WelcomeLogo} alt="page logo" />
+        <img
+          className="welcome__container_image"
+          src={WelcomeLogo}
+          alt="page logo"
+        />
       </div>
       <div className="welcome__container_item centered">
         <p className="welcome__container_slogan">
           Who wants to be <br />a millionaire?
         </p>
-
-        <Button onClick={handleGoToGame} variant="desktop">
-          Start
-        </Button>
+        <div className="welcome__container_button">
+          <Button onClick={handleGoToGame}>Start</Button>
+        </div>
       </div>
     </div>
   );

@@ -22,3 +22,55 @@
   font-weight: var(--font-weight-bold);
   margin-bottom: 64px;
 }
+
+.welcome__container_button {
+  width: 100%;
+  max-width: 296px;
+}
+
+@media only screen and (max-width: 768px) {
+  .diagonal-split {
+    background: linear-gradient(to right bottom, var(--white) 50%, var(--orange-5) 50%);
+  }
+
+  .welcome__container {
+    flex-direction: column;
+    padding: 80px 16px 24px 16px;
+  }
+
+  .welcome__container_item {
+    width: unset;
+  }
+
+  .welcome__container_item:last-child {
+    align-items: center;
+    padding-bottom: 24px;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+
+  .welcome__container_image {
+    width: 80%;
+  }
+
+  .welcome__container_slogan {
+    font-size: 2rem;
+    line-height: 116%;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 24px;
+    margin-top: 24px;
+  }
+
+  .welcome__container_button {
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+@media only screen and (max-height: 480px) {
+  .welcome__container_image {
+    width: auto;
+    max-height: 100px;
+  }
+}
