@@ -1,11 +1,18 @@
-import { useRoutes } from "react-router-dom";
-
-import publicRoutes from "./public";
+import { Route, Routes } from "react-router-dom";
+import Welcome from "../features/welcome/components/Welcome";
+import WhoWantsToBeMillionaire from "../features/whoWantsToBeMillionaire/WhoWantsToBeMillionaire";
 
 function AppRoutes() {
-  const element = useRoutes(publicRoutes);
-
-  return element;
+  return (
+    <Routes>
+      <Route path="/" element={<Welcome />} />
+      <Route
+        path="/who-wants-to-be-a-millionaire"
+        element={<WhoWantsToBeMillionaire />}
+      />
+      <Route path="*" element={<Welcome />} />
+    </Routes>
+  );
 }
 
 export default AppRoutes;
