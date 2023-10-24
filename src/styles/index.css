@@ -8,6 +8,8 @@
 
 /* Features */
 @import url('../features/welcome/_welcome.css');
+@import url('../features/quizGame/_quizGame.css');
 
 /* Components */
 @import url('../components/Button/_button.css');
+@import url('../components/Option/_option.css');

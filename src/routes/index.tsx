@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Welcome from "../features/welcome/components/Welcome";
-import WhoWantsToBeMillionaire from "../features/whoWantsToBeMillionaire/WhoWantsToBeMillionaire";
+import WhoWantsToBeMillionaire from "../features/quizGame/QuizGame";
 
 function AppRoutes() {
   return (

@@ -1,0 +1,33 @@
+.component-option {
+  position: relative;
+  width: fit-content;
+  padding-left: 17px;
+  padding-right: 17px;
+  cursor: pointer;
+}
+
+.component-option-content {
+  position: absolute;
+  display: flex;
+  top: 45%;
+  left: 50px;
+  transform: translateY(-45%);
+}
+
+.component-option--ticker {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--orange-100);
+  margin-right: 8px;
+}
+
+.component-option--stepText {
+  font-size: 1rem;
+  color: var(--black-100);
+  line-height: 23px;
+}
+
+.component-option-content-step {
+  left: 50%;
+  transform: translate(-50%, -45%);
+}
