@@ -1,0 +1,9 @@
+@import url('./normalize.css');
+/* General base styles */
+@import url('./_base.css');
+
+/* Variables */
+@import url('./variables.css');
+
+/* Features */
+@import url('../features/welcome/_welcome.css');

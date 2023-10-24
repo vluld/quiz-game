@@ -1,0 +1,5 @@
+.diagonal-split {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right bottom, var(--white) 50%, var(--orange-5) 50%);
+}
