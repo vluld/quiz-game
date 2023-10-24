@@ -1,4 +1,6 @@
 :root {
+  /* Colors */
+
   /* Orange */
   --orange-5: #FFF3EB;
   --orange-80: #FFAC70;
@@ -24,4 +26,8 @@
 
   --white: #FFFFFF;
 
+  /* Font weight */
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
 }
