@@ -7,3 +7,6 @@
 
 /* Features */
 @import url('../features/welcome/_welcome.css');
+
+/* Components */
+@import url('../components/Button/_button.css');

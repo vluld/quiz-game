@@ -1,0 +1,29 @@
+.component-button {
+  background-color: var(--orange-100);
+  color: var(--white);
+  font-weight: var(--font-weight-bold);
+  min-width: 296px;
+  border: none;
+  cursor: pointer;
+  line-height: 116%;
+}
+
+.component-button--desktop {
+  padding: 20px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+.component-button--mobile {
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+}
+
+.component-button:hover {
+  background-color: var(--orange-80);
+}
+
+.component-button:active {
+  background-color: var(--orange-120);
+}
