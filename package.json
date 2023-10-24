@@ -32,7 +32,9 @@
     "prepare": "husky install",
     "lint:pre-commit": "eslint --ignore-path ./.eslintignore $(git diff --staged --name-only --no-error-on-unmatched-pattern | grep -E '.ts$|.tsx$' | xargs)",
     "format:pre-commit": "prettier --check $(git diff --staged --name-only --no-error-on-unmatched-pattern | grep -E '.ts$|.tsx$|.css$' | xargs)",
-    "test:pre-push": "CI=true react-scripts test"
+    "test:pre-push": "CI=true react-scripts test",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -65,6 +67,7 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "gh-pages": "^6.0.0",
     "husky": "^8.0.0",
     "prettier": "^3.0.3"
   }
