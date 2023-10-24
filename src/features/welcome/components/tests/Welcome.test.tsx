@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderApp } from "src/tests/setup";
+import { renderApp } from "tests/setup";
 import Welcome from "../Welcome";
 
 test("renders welcome page", () => {
