@@ -5,10 +5,26 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--orange-120);
+  color: var(--black-100);
+}
+
+html {
+  font-size: 20px;
+}
+
+.fullscreen {
+  height: 100vh;
+  width: 100vw;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
