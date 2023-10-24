@@ -1,14 +1,14 @@
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import AppRoutes from "./routes";
 import { store } from "./state/store";
 
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <Router>
         <AppRoutes />
-      </BrowserRouter>
+      </Router>
     </Provider>
   );
 }
