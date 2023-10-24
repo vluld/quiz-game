@@ -1,5 +1,24 @@
 .diagonal-split {
-  width: 100vw;
-  height: 100vh;
   background: linear-gradient(to right bottom, var(--white) 50%, var(--orange-5) 50%);
+}
+
+.welcome__container {
+  padding: 80px;
+}
+
+.welcome__container_item {
+  width: 50%;
+}
+
+.welcome__container_item:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.welcome__container_slogan {
+  font-size: 2.8rem;
+  line-height: 116%;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 64px;
 }
