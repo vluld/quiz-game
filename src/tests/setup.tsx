@@ -1,10 +1,8 @@
-import { Provider } from "react-redux";
-import { BrowserRouter, Route } from "react-router-dom";
-import { Routes } from "react-router-dom";
-import { store } from "../state/store";
 import { Store, configureStore } from "@reduxjs/toolkit";
-import { reducer } from "../state/reducer";
 import { render } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { reducer } from "../state/reducer";
 
 export const createStore = (): Store =>
   configureStore({

@@ -1,7 +1,6 @@
 import { screen } from "@testing-library/react";
-import Welcome from "../Welcome";
 import { renderApp } from "../../../../tests/setup";
-import { Route } from "react-router-dom";
+import Welcome from "../Welcome";
 
 test("renders welcome page", () => {
   renderApp(<Welcome />);
