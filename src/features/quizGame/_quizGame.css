@@ -1,7 +1,7 @@
 .quiz-game-container {
   display: grid;
   grid-template-columns: 1fr 376px;
-  height: 100vh;
+  height: 100%;
 }
 
 .quiz-game-container-content {
@@ -84,10 +84,6 @@
     font-size: 1rem;
   }
 
-  .quiz-game-container-stepsList {
-    height: 100vh;
-  }
-
   .quiz-game-container-options {
     justify-content: center;
     overflow-x: hidden;
@@ -95,9 +91,7 @@
 
   .quiz-game-container--steps {
     z-index: 1;
-    height: 100vh;
     position: absolute;
     background-color: #fff;
-    width: 100%;
   }
 }

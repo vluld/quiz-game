@@ -39,3 +39,9 @@
   left: 50%;
   transform: translate(-50%, -45%);
 }
+
+@media only screen and (max-width: 768px) {
+  .quiz-game-container-step>.component-option-content {
+    left: 40px;
+  }
+}

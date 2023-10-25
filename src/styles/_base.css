@@ -16,10 +16,21 @@ body {
 
 html {
   font-size: 20px;
+  margin: 0px;
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }
 
 .fullscreen {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
 }
 
