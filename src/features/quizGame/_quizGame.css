@@ -38,6 +38,8 @@
   align-items: center;
   max-height: 80vh;
   overflow-y: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .quiz-game-container-step {
@@ -62,7 +64,7 @@
   .quiz-game-container-content {
     padding: 40px 24px;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 40% 1fr;
     overflow: hidden;
   }
 
@@ -88,9 +90,10 @@
 
   .quiz-game-container-options {
     justify-content: center;
+    overflow-x: hidden;
   }
 
-  .quiz-game-container--steps{
+  .quiz-game-container--steps {
     z-index: 1;
     height: 100vh;
     position: absolute;
