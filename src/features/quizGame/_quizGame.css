@@ -93,5 +93,7 @@
     z-index: 1;
     position: absolute;
     background-color: #fff;
+    height: 100%;
+    width: 100%;
   }
 }

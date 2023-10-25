@@ -96,7 +96,7 @@ function QuizGame() {
         </section>
       )}
       {questions.length > 0 && shouldShowAnswers && (
-        <aside className="quiz-game-container--steps centered fullscreen">
+        <aside className="quiz-game-container--steps centered">
           <StepList
             questions={memoizedQuestions}
             currentQuestionIndex={currentQuestionIndex}

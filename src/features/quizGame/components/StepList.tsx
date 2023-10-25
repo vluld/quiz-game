@@ -32,7 +32,7 @@ function StepList({ questions, currentQuestionIndex }: Props) {
       {questions.map((question, index) => (
         <StepOption
           key={question.id}
-          text={`$${question.value}`}
+          text={`$${question.value.toLocaleString("en-US")}`}
           state={getStateForOption(index)}
           textState={getStateForText(index)}
         />
