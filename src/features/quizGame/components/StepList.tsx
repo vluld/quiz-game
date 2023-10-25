@@ -1,4 +1,5 @@
 import StepOption from "components/Option/StepOption";
+import { OptionStateVariant, OptionTextState } from "components/Option/types";
 import { QuizQuestion } from "../types";
 
 type Props = {
@@ -7,14 +8,22 @@ type Props = {
 };
 
 function StepList({ questions, currentQuestionIndex }: Props) {
-  const getStateForOption = (index: number) => {
+  const getStateForOption = (index: number): OptionStateVariant => {
     if (currentQuestionIndex === index) {
       return "selected";
+    }
+    return "inactive";
+  };
+
+  const getStateForText = (index: number): OptionTextState => {
+    if (currentQuestionIndex === index) {
+      return "active";
     }
     if (currentQuestionIndex > index) {
       return "inactive";
     }
-    return "inactive";
+
+    return "default";
   };
 
   return (
@@ -24,6 +33,7 @@ function StepList({ questions, currentQuestionIndex }: Props) {
           key={question.id}
           text={`$${question.value}`}
           state={getStateForOption(index)}
+          textState={getStateForText(index)}
         />
       ))}
     </div>

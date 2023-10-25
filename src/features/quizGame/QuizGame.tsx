@@ -18,6 +18,7 @@ import {
   getCurrentQuestion,
   getCurrentQuestionIndex,
   getGameStatus,
+  getIsLastQuestion,
   getQuestions,
 } from "./state/quizGameSelectors";
 
@@ -31,32 +32,37 @@ function QuizGame() {
   const questions = useAppSelector(getQuestions);
   const currentQuestionIndex = useAppSelector(getCurrentQuestionIndex);
   const currentAnswerId = useAppSelector(getCurrentAnswerId);
+  const isLastQuestion = useAppSelector(getIsLastQuestion);
 
-  const isGameNotStarted = gameStatus === "notStarted";
   const isGameOver = gameStatus === "gameOver";
 
   const [showAnswer, setShowAnswers] = useState(false);
 
   const shouldShowAnswers = isMobile ? showAnswer : true;
+  const answeredLastQuestion = isLastQuestion && currentAnswerId !== null;
 
   useEffect(() => {
     dispatch(startGame(quizData));
   }, [dispatch]);
 
   useEffect(() => {
-    if (isGameOver) {
+    if (isGameOver || answeredLastQuestion) {
       navigate("/results");
     }
-  }, [isGameOver, navigate]);
+  }, [isGameOver, navigate, answeredLastQuestion]);
 
   const onAnswerClick = useCallback(
     (answerId: string) => {
       dispatch(answerQuestion(answerId));
-      setTimeout(() => {
+      if (isLastQuestion) {
         dispatch(checkResult());
-      }, 1500);
+      } else {
+        setTimeout(() => {
+          dispatch(checkResult());
+        }, 500);
+      }
     },
-    [dispatch],
+    [dispatch, isLastQuestion],
   );
 
   return (
@@ -76,7 +82,7 @@ function QuizGame() {
           />
         </span>
       )}
-      {!isGameNotStarted && (
+      {questions.length > 0 && (
         <section className="quiz-game-container-content">
           <Question text={currentQuestion.question} />
           <AnswersOptions
@@ -87,7 +93,7 @@ function QuizGame() {
           />
         </section>
       )}
-      {shouldShowAnswers && (
+      {questions.length > 0 && shouldShowAnswers && (
         <aside className="quiz-game-container--steps centered">
           <StepList
             questions={questions}

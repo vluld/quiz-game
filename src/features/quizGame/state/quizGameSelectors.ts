@@ -15,3 +15,7 @@ export const getCurrentQuestion = (state: RootState) =>
 
 export const getCurrentAnswerId = (state: RootState) =>
   state.gameProgress.currentAnswerId;
+
+export const getIsLastQuestion = (state: RootState) =>
+  state.gameProgress.currentQuestionIndex ===
+  state.gameProgress.questions.length - 1;

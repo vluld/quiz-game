@@ -26,6 +26,15 @@
   line-height: 23px;
 }
 
+.component-option--stepText-active {
+  color: var(--orange-100);
+}
+
+.component-option--stepText-inactive {
+  color: var(--black-40);
+
+}
+
 .component-option-content-step {
   left: 50%;
   transform: translate(-50%, -45%);
