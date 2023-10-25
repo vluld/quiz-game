@@ -2,7 +2,7 @@ import CloseIcon from "assets/icons/Close.svg";
 import MenuIcon from "assets/icons/Menu.svg";
 import quizData from "data/quizData.json";
 import useGetScreenSize from "hooks/useGetScreenSize";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "state/hooks";
 import { useNavigate } from "react-router-dom";
 import AnswersOptions from "./components/AnswersOptions";
@@ -40,6 +40,8 @@ function QuizGame() {
 
   const shouldShowAnswers = isMobile ? showAnswer : true;
   const answeredLastQuestion = isLastQuestion && currentAnswerId !== null;
+
+  const memoizedQuestions = useMemo(() => questions, [questions]);
 
   useEffect(() => {
     dispatch(startGame(quizData));
@@ -96,7 +98,7 @@ function QuizGame() {
       {questions.length > 0 && shouldShowAnswers && (
         <aside className="quiz-game-container--steps centered fullscreen">
           <StepList
-            questions={questions}
+            questions={memoizedQuestions}
             currentQuestionIndex={currentQuestionIndex}
           />
         </aside>

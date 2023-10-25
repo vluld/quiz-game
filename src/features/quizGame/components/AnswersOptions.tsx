@@ -1,5 +1,6 @@
 import AnswerOption from "components/Option/AnswerOption";
 import { OptionStateVariant } from "components/Option/types";
+import { useCallback } from "react";
 import { QuizAnswer } from "../types";
 import getTickerValueBasedOnIndex from "../utils/getTickerValue";
 
@@ -16,22 +17,25 @@ function AnswersOptions({
   currentAnswerId,
   correctAnswerId,
 }: Props) {
-  const getState = (answerId: string): OptionStateVariant => {
-    const isSelected = currentAnswerId === answerId;
-    if (!isSelected) {
+  const getState = useCallback(
+    (answerId: string): OptionStateVariant => {
+      const isSelected = currentAnswerId === answerId;
+      if (!isSelected) {
+        return "inactive";
+      }
+      if (isSelected && answerId === correctAnswerId) {
+        return "correct";
+      }
+      if (isSelected && answerId !== correctAnswerId) {
+        return "wrong";
+      }
+      if (isSelected) {
+        return "selected";
+      }
       return "inactive";
-    }
-    if (isSelected && answerId === correctAnswerId) {
-      return "correct";
-    }
-    if (isSelected && answerId !== correctAnswerId) {
-      return "wrong";
-    }
-    if (isSelected) {
-      return "selected";
-    }
-    return "inactive";
-  };
+    },
+    [currentAnswerId, correctAnswerId],
+  );
 
   return (
     <div className="quiz-game-container-options">

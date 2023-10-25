@@ -1,5 +1,6 @@
 import StepOption from "components/Option/StepOption";
 import { OptionStateVariant, OptionTextState } from "components/Option/types";
+import { memo } from "react";
 import { QuizQuestion } from "../types";
 
 type Props = {
@@ -40,4 +41,4 @@ function StepList({ questions, currentQuestionIndex }: Props) {
   );
 }
 
-export default StepList;
+export default memo(StepList);

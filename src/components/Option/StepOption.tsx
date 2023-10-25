@@ -1,4 +1,5 @@
 import useGetScreenSize from "hooks/useGetScreenSize";
+import { memo } from "react";
 import Option from "./Option";
 import { OptionStateVariant, OptionTextState } from "./types";
 
@@ -37,4 +38,4 @@ function StepOption({ state, text, textState }: Props) {
   );
 }
 
-export default StepOption;
+export default memo(StepOption);
