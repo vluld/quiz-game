@@ -41,10 +41,10 @@
     "answers": [
       { "id": 1, "text": "Петрос" },
       { "id": 2, "text": "Говерла" },
-      { "id": 3, "text": "Говерла" },
-      { "id": 4, "text": "Говерла" }
+      { "id": 3, "text": "Висока" },
+      { "id": 4, "text": "Бребенескул" }
     ],
-    "correctAnswerId": 1,
+    "correctAnswerId": 2,
     "value": 400
   },
   {
