@@ -8,9 +8,10 @@ type Props = {
   state: OptionStateVariant;
   children: ReactNode;
   size: { width: string; height: string };
+  disableHover?: boolean;
 };
 
-function Option({ state, children, size }: Props) {
+function Option({ state, children, size, disableHover }: Props) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const theme = getThemeBasedOnState(state);
 
@@ -19,8 +20,8 @@ function Option({ state, children, size }: Props) {
   return (
     <div
       className="component-option"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={disableHover ? undefined : () => setIsHovered(true)}
+      onMouseLeave={disableHover ? undefined : () => setIsHovered(false)}
     >
       {children}
       <OptionIcon
@@ -34,3 +35,7 @@ function Option({ state, children, size }: Props) {
 }
 
 export default Option;
+
+Option.defaultProps = {
+  disableHover: false,
+};

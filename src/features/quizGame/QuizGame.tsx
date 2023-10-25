@@ -1,15 +1,63 @@
 import CloseIcon from "assets/icons/Close.svg";
 import MenuIcon from "assets/icons/Menu.svg";
+import quizData from "data/quizData.json";
 import useGetScreenSize from "hooks/useGetScreenSize";
-import { useState } from "react";
-import StepList from "./components/StepList";
+import { useCallback, useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "state/hooks";
+import { useNavigate } from "react-router-dom";
 import AnswersOptions from "./components/AnswersOptions";
+import Question from "./components/Question";
+import StepList from "./components/StepList";
+import {
+  answerQuestion,
+  checkResult,
+  startGame,
+} from "./state/quizGameReducerSlice";
+import {
+  getCurrentAnswerId,
+  getCurrentQuestion,
+  getCurrentQuestionIndex,
+  getGameStatus,
+  getQuestions,
+} from "./state/quizGameSelectors";
 
 function QuizGame() {
-  const [showAnswer, setShowAnswers] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const { isMobile } = useGetScreenSize();
 
+  const currentQuestion = useAppSelector(getCurrentQuestion);
+  const gameStatus = useAppSelector(getGameStatus);
+  const questions = useAppSelector(getQuestions);
+  const currentQuestionIndex = useAppSelector(getCurrentQuestionIndex);
+  const currentAnswerId = useAppSelector(getCurrentAnswerId);
+
+  const isGameNotStarted = gameStatus === "notStarted";
+  const isGameOver = gameStatus === "gameOver";
+
+  const [showAnswer, setShowAnswers] = useState(false);
+
   const shouldShowAnswers = isMobile ? showAnswer : true;
+
+  useEffect(() => {
+    dispatch(startGame(quizData));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isGameOver) {
+      navigate("/results");
+    }
+  }, [isGameOver, navigate]);
+
+  const onAnswerClick = useCallback(
+    (answerId: string) => {
+      dispatch(answerQuestion(answerId));
+      setTimeout(() => {
+        dispatch(checkResult());
+      }, 1500);
+    },
+    [dispatch],
+  );
 
   return (
     <div className="quiz-game-container">
@@ -22,20 +70,29 @@ function QuizGame() {
           onClick={() => setShowAnswers((prev) => !prev)}
           className="quiz-game-container--mobileButton"
         >
-          <img src={showAnswer ? CloseIcon : MenuIcon} alt="" />
+          <img
+            src={showAnswer ? CloseIcon : MenuIcon}
+            alt={showAnswer ? "Close answers" : "Open answers"}
+          />
         </span>
       )}
-      <section className="quiz-game-container-content">
-        <div className="quiz-game-container-questions">
-          <p className="quiz-game-container-question">
-            How old your elder brother was 10 years before you was born, mate?
-          </p>
-        </div>
-        <AnswersOptions />
-      </section>
+      {!isGameNotStarted && (
+        <section className="quiz-game-container-content">
+          <Question text={currentQuestion.question} />
+          <AnswersOptions
+            answers={currentQuestion.answers}
+            onAnswerClick={onAnswerClick}
+            currentAnswerId={currentAnswerId}
+            correctAnswerId={currentQuestion.correctAnswerId}
+          />
+        </section>
+      )}
       {shouldShowAnswers && (
         <aside className="quiz-game-container--steps centered">
-          <StepList />
+          <StepList
+            questions={questions}
+            currentQuestionIndex={currentQuestionIndex}
+          />
         </aside>
       )}
     </div>

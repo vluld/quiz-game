@@ -14,11 +14,13 @@ function StepOption({ state, text }: Props) {
     : { width: "240", height: "40" };
 
   return (
-    <Option state={state} size={size}>
-      <div className="component-option-content component-option-content-step">
-        <p className="component-option--stepText">{text}</p>
-      </div>
-    </Option>
+    <div className="quiz-game-container-step">
+      <Option state={state} size={size} disableHover>
+        <div className="component-option-content component-option-content-step">
+          <p className="component-option--stepText">{text}</p>
+        </div>
+      </Option>
+    </div>
   );
 }
 

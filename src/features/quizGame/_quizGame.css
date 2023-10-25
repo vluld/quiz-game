@@ -23,6 +23,7 @@
 
 .quiz-game-container-option {
   margin-bottom: 32px;
+  cursor: pointer;
 }
 
 .quiz-game-container-question {
@@ -33,7 +34,7 @@
 
 .quiz-game-container-stepsList {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   max-height: 80vh;
   overflow-y: auto;

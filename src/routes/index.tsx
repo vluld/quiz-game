@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Welcome from "../features/welcome/components/Welcome";
 import WhoWantsToBeMillionaire from "../features/quizGame/QuizGame";
+import Results from "../features/results/components/Results";
+import Welcome from "../features/welcome/components/Welcome";
 
 function AppRoutes() {
   return (
@@ -10,6 +11,7 @@ function AppRoutes() {
         path="/who-wants-to-be-a-millionaire"
         element={<WhoWantsToBeMillionaire />}
       />
+      <Route path="/results" element={<Results />} />
       <Route path="*" element={<Welcome />} />
     </Routes>
   );
