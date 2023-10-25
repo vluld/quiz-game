@@ -29,7 +29,7 @@ describe("Results page", () => {
     const amountTitle = screen.getByText(/Earned/i);
     expect(amountTitle).toBeInTheDocument();
 
-    const amount = screen.getByText(/\$300/i);
+    const amount = screen.getByText(/\$2,000/i);
     expect(amount).toBeInTheDocument();
   });
 });
